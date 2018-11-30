@@ -2,7 +2,7 @@
 
 [**semantic-release**](https://github.com/semantic-release/semantic-release) plugin to publish [Atom](https://www.atom.io) packages with with [apm](https://github.com/atom/apm).
 
-[![Travis](https://img.shields.io/travis/semantic-release/apm.svg)](https://travis-ci.org/semantic-release/apm)
+[![Travis](https://img.shields.io/travis/com/semantic-release/apm.svg)](https://travis-ci.com/semantic-release/apm)
 [![Codecov](https://img.shields.io/codecov/c/github/semantic-release/apm.svg)](https://codecov.io/gh/semantic-release/apm)
 [![Greenkeeper badge](https://badges.greenkeeper.io/semantic-release/apm.svg)](https://greenkeeper.io/)
 
