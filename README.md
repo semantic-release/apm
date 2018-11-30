@@ -38,6 +38,14 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
 
 ## Configuration
 
+### Apm installation
+
+The plugin uses the [`apm` CLI](https://github.com/atom/apm) which has to be installed in your CI environment and available in the `PATH`.
+
+See the [Atom Package CI Scripts](https://github.com/atom/ci#atom-package-ci-scripts) documentation to install `apm` in your CI.
+
+**Note**: If you are running multiple versions of Atom in CI (for example, Stable and Beta), ensure that the `semantic-release` command is run on a build using the Stable channel of Atom as the Beta channel builds only provide `apm-beta`. If you are using [travis-deploy-once](https://github.com/semantic-release/travis-deploy-once) this can be achieved by setting the Stable channel build to be the last build to run, or by using the [`buildLeaderId`](https://github.com/semantic-release/travis-deploy-once#-b---buildleaderid) option.
+
 ### Atom authentication
 
 The Atom authentication configuration is **required** and can be set via [environment variables](#environment-variables).
@@ -49,11 +57,3 @@ Visit your account page on [Atom.io](https://atom.io/account) to obtain your aut
 | Variable            | Description                                        |
 |---------------------|----------------------------------------------------|
 | `ATOM_ACCESS_TOKEN` | The token used to authenticate with Atom registry. |
-
-### Apm installation
-
-The plugin uses the [`apm` CLI](https://github.com/atom/apm) which has to be installed in your CI environment and available in the `PATH`.
-
-See the [Atom Package CI Scripts](https://github.com/atom/ci#atom-package-ci-scripts) documentation to install `apm` in your CI.
-
-**Note**: If you are running multiple versions of Atom in CI (for example, Stable and Beta), ensure that the `semantic-release` command is run on a build using the Stable channel of Atom as the Beta channel builds only provide `apm-beta`. If you are using [travis-deploy-once](https://github.com/semantic-release/travis-deploy-once) this can be achieved by setting the Stable channel build to be the last build to run, or by using the [`buildLeaderId`](https://github.com/semantic-release/travis-deploy-once#-b---buildleaderid) option.
