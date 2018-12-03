@@ -1,4 +1,4 @@
-# @semantic-release/npm
+# @semantic-release/apm
 
 [**semantic-release**](https://github.com/semantic-release/semantic-release) plugin to publish [Atom](https://www.atom.io) packages with with [apm](https://github.com/atom/apm).
 
