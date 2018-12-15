@@ -38,7 +38,7 @@ test('Verify atom token, cli and package', async t => {
   const cwd = tempy.directory();
   const pkg = {name: 'valid-token', version: '0.0.0-dev'};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
-  await t.notThrows(
+  await t.notThrowsAsync(
     t.context.m.verifyConditions(
       {},
       {
@@ -59,7 +59,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in verifyC
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
-    ...(await t.throws(
+    ...(await t.throwsAsync(
       t.context.m.verifyConditions(
         {},
         {
@@ -115,7 +115,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in prepare
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
-    ...(await t.throws(
+    ...(await t.throwsAsync(
       t.context.m.prepare(
         {},
         {
@@ -188,7 +188,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in publish
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
-    ...(await t.throws(
+    ...(await t.throwsAsync(
       t.context.m.publish(
         {},
         {
@@ -227,7 +227,7 @@ test('Verify token and set up auth only on the fist call, then prepare on prepar
   const pkg = {name, version: '0.0.0', repository: {url: repositoryUrl}};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
 
-  await t.notThrows(
+  await t.notThrowsAsync(
     t.context.m.verifyConditions(
       {},
       {cwd, env, options: {}, stdout: t.context.stdout, stderr: t.context.stderr, logger: t.context.logger}
