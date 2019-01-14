@@ -31,6 +31,7 @@ async function prepare(pluginConfig, context) {
   } catch (error) {
     errors.push(...error);
   }
+
   if (errors.length > 0) {
     throw new AggregateError(errors);
   }
