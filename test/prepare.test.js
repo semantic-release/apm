@@ -38,6 +38,31 @@ test('Updade package.json', async t => {
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');
 });
 
+// Test corner case of version in package,json being identical to last tag
+test('Allow same version', async t => {
+  const cwd = tempy.directory();
+  const packagePath = path.resolve(cwd, 'package.json');
+  await outputJson(packagePath, {version: '0.0.0-dev'});
+
+  await prepare(
+    {},
+    {
+      cwd,
+      env: {},
+      stdout: t.context.stdout,
+      stderr: t.context.stderr,
+      nextRelease: {version: '0.0.0-dev'},
+      logger: t.context.logger,
+    }
+  );
+
+  // Verify package.json has been updated
+  t.is((await readJson(packagePath)).version, '0.0.0-dev');
+
+  // Verify the logger has been called with the version updated
+  t.is(t.context.log.args[0][0], 'Write version 0.0.0-dev to package.json');
+});
+
 test('Updade package.json and npm-shrinkwrap.json', async t => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
