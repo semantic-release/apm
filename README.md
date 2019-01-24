@@ -18,8 +18,10 @@
 ## Install
 
 ```bash
-$ npm install @semantic-release/apm -D
+$ npm install @semantic-release/apm @semantic-release/git -D
 ```
+
+**Note**: apm require to have the version in `package.json` pushed to the repository so the [`@semantic-release/git`](https://github.com/semantic-release/git) plugin is required.
 
 ## Usage
 
@@ -31,7 +33,8 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/github",
-    "@semantic-release/apm"
+    "@semantic-release/apm",
+    "@semantic-release/git"
   ]
 }
 ```
