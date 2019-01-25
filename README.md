@@ -28,11 +28,12 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
 ```json
 {
   "plugins": [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
-    "@semantic-release/github",
-    "@semantic-release/apm"
-  ]
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/apm",
+      "@semantic-release/git"
+    ]
 }
 ```
 
@@ -57,3 +58,21 @@ Visit your account page on [Atom.io](https://atom.io/account) to obtain your aut
 | Variable            | Description                                        |
 |---------------------|----------------------------------------------------|
 | `ATOM_ACCESS_TOKEN` | The token used to authenticate with Atom registry. |
+
+### Examples
+
+When used with the [@semantic-release/changelog](https://github.com/semantic-release/changelog) or [@semantic-release/apm](https://github.com/semantic-release/apm) plugins:
+- The [@semantic-release/changelog](https://github.com/semantic-release/changelog) plugin must be called first in order to update the changelog file so the `@semantic-release/git` and [@semantic-release/npm](https://github.com/semantic-release/npm) plugins can include it in the release.
+- The [@semantic-release/apm](https://github.com/semantic-release/apm) plugin must be called second in order to update the `package.json` file so the `@semantic-release/git` plugin can include it in the release commit.
+
+```json
+{
+  "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/apm",
+      "@semantic-release/git"
+    ],
+}
+```
