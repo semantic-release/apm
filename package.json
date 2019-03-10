@@ -20,7 +20,7 @@
     "aggregate-error": "^2.0.0",
     "execa": "^1.0.0",
     "npm": "^6.4.1",
-    "read-pkg": "^4.0.1"
+    "read-pkg": "^5.0.0"
   },
   "devDependencies": {
     "ava": "^1.0.1",
