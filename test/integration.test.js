@@ -20,6 +20,10 @@ test.before(async () => {
   await mockServer.start();
 });
 
+test.after.always(async () => {
+  await mockServer.stop();
+});
+
 test.beforeEach(t => {
   // Clear npm cache to refresh the module state
   clearModule('..');
@@ -28,10 +32,6 @@ test.beforeEach(t => {
   t.context.stdout = new WritableStreamBuffer();
   t.context.stderr = new WritableStreamBuffer();
   t.context.logger = {log: t.context.log};
-});
-
-test.after.always(async () => {
-  await mockServer.stop();
 });
 
 test('Verify atom token, cli and package', async t => {

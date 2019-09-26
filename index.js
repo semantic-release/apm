@@ -1,3 +1,5 @@
+/* eslint require-atomic-updates: off */
+
 const AggregateError = require('aggregate-error');
 const getPkg = require('./lib/get-pkg');
 const verifyApm = require('./lib/verify');
