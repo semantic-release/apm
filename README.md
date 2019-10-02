@@ -8,6 +8,7 @@
 
 [![npm latest version](https://img.shields.io/npm/v/@semantic-release/apm/latest.svg)](https://www.npmjs.com/package/@semantic-release/apm)
 [![npm next version](https://img.shields.io/npm/v/@semantic-release/apm/next.svg)](https://www.npmjs.com/package/@semantic-release/apm)
+[![npm beta version](https://img.shields.io/npm/v/@semantic-release/apm/beta.svg)](https://www.npmjs.com/package/@semantic-release/apm)
 
 | Step               | Description                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------|

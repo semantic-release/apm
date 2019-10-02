@@ -36,7 +36,7 @@
     "mockserver-client": "^5.5.0",
     "nyc": "^14.0.0",
     "p-retry": "^4.0.0",
-    "semantic-release": "^15.12.3",
+    "semantic-release": "^16.0.0-beta",
     "sinon": "^7.1.1",
     "stream-buffers": "^3.0.2",
     "tempy": "^0.3.0",
@@ -74,15 +74,14 @@
     "all": true
   },
   "peerDependencies": {
-    "semantic-release": ">=15.9.0 <16.0.0"
+    "semantic-release": ">=15.9.0 <17.0.0"
   },
   "prettier": {
     "printWidth": 120,
     "trailingComma": "es5"
   },
   "publishConfig": {
-    "access": "public",
-    "tag": "next"
+    "access": "public"
   },
   "repository": {
     "type": "git",
