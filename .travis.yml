@@ -5,8 +5,7 @@ services:
 
 node_js:
   - 12
-  - 10
-  - 8.15
+  - 10.13
 
 addons:
   apt:
