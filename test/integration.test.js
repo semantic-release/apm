@@ -1,12 +1,12 @@
-import path from 'path';
-import test from 'ava';
-import {outputJson, readJson, pathExists} from 'fs-extra';
-import execa from 'execa';
-import {spy} from 'sinon';
-import tempy from 'tempy';
-import clearModule from 'clear-module';
-import {WritableStreamBuffer} from 'stream-buffers';
-import mockServer from './helpers/mockserver';
+const path = require('path');
+const test = require('ava');
+const {outputJson, readJson, pathExists} = require('fs-extra');
+const execa = require('execa');
+const {spy} = require('sinon');
+const tempy = require('tempy');
+const clearModule = require('clear-module');
+const {WritableStreamBuffer} = require('stream-buffers');
+const mockServer = require('./helpers/mockserver');
 
 const env = {
   GITHUB_URL: mockServer.url,
