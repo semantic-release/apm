@@ -27,7 +27,7 @@
     "clear-module": "^4.0.0",
     "codecov": "^3.1.0",
     "dockerode": "^3.0.0",
-    "fs-extra": "^8.0.0",
+    "fs-extra": "^9.0.0",
     "get-stream": "^5.0.0",
     "got": "^10.5.2",
     "mockserver-client": "^5.5.0",
