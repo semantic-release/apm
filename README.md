@@ -2,16 +2,12 @@
 
 [**semantic-release**](https://github.com/semantic-release/semantic-release) plugin to publish [Atom](https://www.atom.io) packages with [apm](https://github.com/atom/apm).
 
-[![Travis](https://img.shields.io/travis/com/semantic-release/apm.svg)](https://travis-ci.com/semantic-release/apm)
-[![Codecov](https://img.shields.io/codecov/c/github/semantic-release/apm.svg)](https://codecov.io/gh/semantic-release/apm)
-[![Greenkeeper badge](https://badges.greenkeeper.io/semantic-release/apm.svg)](https://greenkeeper.io/)
-
-[![npm latest version](https://img.shields.io/npm/v/@semantic-release/apm/latest.svg)](https://www.npmjs.com/package/@semantic-release/apm)
+[![Build Status](https://github.com/semantic-release/apm/workflows/Test/badge.svg)](https://github.com/semantic-release/apm/actions?query=workflow%3ATest+branch%3Amaster)[![npm latest version](https://img.shields.io/npm/v/@semantic-release/apm/latest.svg)](https://www.npmjs.com/package/@semantic-release/apm)
 [![npm next version](https://img.shields.io/npm/v/@semantic-release/apm/next.svg)](https://www.npmjs.com/package/@semantic-release/apm)
 [![npm beta version](https://img.shields.io/npm/v/@semantic-release/apm/beta.svg)](https://www.npmjs.com/package/@semantic-release/apm)
 
 | Step               | Description                                                                                  |
-|--------------------|----------------------------------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------------------------------- |
 | `verifyConditions` | Verify the presence of the `ATOM_ACCESS_TOKEN` environment variable and the `apm` CLI.       |
 | `prepare`          | Update the `package.json` version with [`npm version`](https://docs.npmjs.com/cli/version).  |
 | `publish`          | [Publish the Atom package](https://flight-manual.atom.io/hacking-atom/sections/publishing/). |
@@ -59,5 +55,5 @@ Visit your account page on [Atom.io](https://atom.io/account) to obtain your aut
 ### Environment variables
 
 | Variable            | Description                                        |
-|---------------------|----------------------------------------------------|
+| ------------------- | -------------------------------------------------- |
 | `ATOM_ACCESS_TOKEN` | The token used to authenticate with Atom registry. |
