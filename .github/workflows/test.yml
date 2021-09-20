@@ -13,9 +13,8 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 10
-          - 12
-          - 14
+          - '14.17'
+          - 16
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,6 +25,8 @@ jobs:
           cache: npm
       - uses: UziTech/action-setup-atom@v1
       - run: npm ci
+      - name: Ensure dependencies are compatible with the version of node
+        run: npx ls-engines
       - run: npm run test:ci
   test:
     runs-on: ubuntu-latest
