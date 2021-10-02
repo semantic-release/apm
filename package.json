@@ -96,7 +96,8 @@
     "prettier": true,
     "space": true,
     "rules": {
-      "unicorn/string-content": "off"
+      "unicorn/string-content": "off",
+      "unicorn/prefer-module": "off"
     }
   },
   "renovate": {

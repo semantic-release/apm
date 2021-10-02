@@ -5,16 +5,16 @@ const tempy = require('tempy');
 const execa = require('execa');
 const {stub} = require('sinon');
 const {WritableStreamBuffer} = require('stream-buffers');
-const prepare = require('../lib/prepare');
+const prepare = require('../lib/prepare.js');
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   t.context.log = stub();
   t.context.logger = {log: t.context.log};
   t.context.stdout = new WritableStreamBuffer();
   t.context.stderr = new WritableStreamBuffer();
 });
 
-test('Updade package.json', async t => {
+test('Updade package.json', async (t) => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
   await outputJson(packagePath, {version: '0.0.0-dev'});
@@ -38,7 +38,7 @@ test('Updade package.json', async t => {
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');
 });
 
-test('Updade package.json and npm-shrinkwrap.json', async t => {
+test('Updade package.json and npm-shrinkwrap.json', async (t) => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
   const shrinkwrapPath = path.resolve(cwd, 'npm-shrinkwrap.json');
@@ -65,7 +65,7 @@ test('Updade package.json and npm-shrinkwrap.json', async t => {
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');
 });
 
-test('Updade package.json and package-lock.json', async t => {
+test('Updade package.json and package-lock.json', async (t) => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
   const packageLockPath = path.resolve(cwd, 'package-lock.json');
@@ -92,7 +92,7 @@ test('Updade package.json and package-lock.json', async t => {
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');
 });
 
-test('Preserve indentation and newline', async t => {
+test('Preserve indentation and newline', async (t) => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
   await outputFile(packagePath, `{\r\n        "name": "package-name",\r\n        "version": "0.0.0-dev"\r\n}\r\n`);
@@ -119,7 +119,7 @@ test('Preserve indentation and newline', async t => {
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');
 });
 
-test('Use default indentation and newline if it cannot be detected', async t => {
+test('Use default indentation and newline if it cannot be detected', async (t) => {
   const cwd = tempy.directory();
   const packagePath = path.resolve(cwd, 'package.json');
   await outputFile(packagePath, `{"name": "package-name","version": "0.0.0-dev"}`);

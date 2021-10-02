@@ -6,7 +6,7 @@ const {spy} = require('sinon');
 const tempy = require('tempy');
 const clearModule = require('clear-module');
 const {WritableStreamBuffer} = require('stream-buffers');
-const mockServer = require('./helpers/mockserver');
+const mockServer = require('./helpers/mockserver.js');
 
 const env = {
   GITHUB_URL: mockServer.url,
@@ -24,7 +24,7 @@ test.after.always(async () => {
   await mockServer.stop();
 });
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   // Clear npm cache to refresh the module state
   clearModule('..');
   t.context.m = require('..');
@@ -34,7 +34,7 @@ test.beforeEach(t => {
   t.context.logger = {log: t.context.log};
 });
 
-test('Verify atom token, cli and package', async t => {
+test('Verify atom token, cli and package', async (t) => {
   const cwd = tempy.directory();
   const pkg = {name: 'valid-token', version: '0.0.0-dev'};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
@@ -53,7 +53,7 @@ test('Verify atom token, cli and package', async t => {
   );
 });
 
-test('Throw SemanticReleaseError Array if config option are not valid in verifyConditions', async t => {
+test('Throw SemanticReleaseError Array if config option are not valid in verifyConditions', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
@@ -87,7 +87,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in verifyC
   t.truthy(errors[2].details);
 });
 
-test('Prepare the package', async t => {
+test('Prepare the package', async (t) => {
   const cwd = tempy.directory();
   const pkg = {name: 'prepare', version: '0.0.0'};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
@@ -109,7 +109,7 @@ test('Prepare the package', async t => {
   t.false(await pathExists(path.resolve(cwd, `${pkg.name}-1.0.0.tgz`)));
 });
 
-test('Throw SemanticReleaseError Array if config option are not valid in prepare', async t => {
+test('Throw SemanticReleaseError Array if config option are not valid in prepare', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
@@ -145,7 +145,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in prepare
   t.truthy(errors[2].details);
 });
 
-test('Publish the package', async t => {
+test('Publish the package', async (t) => {
   const name = 'publish';
   const repositoryUrl = `${mockServer.url}/owner/${name}.git`;
   const cwd = tempy.directory();
@@ -182,7 +182,7 @@ test('Publish the package', async t => {
   t.is((await readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
 });
 
-test('Throw SemanticReleaseError Array if config option are not valid in publish', async t => {
+test('Throw SemanticReleaseError Array if config option are not valid in publish', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
   await outputJson(path.resolve(cwd, 'package.json'), pkg);
@@ -218,7 +218,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in publish
   t.truthy(errors[2].details);
 });
 
-test('Verify token and set up auth only on the fist call, then prepare on prepare call only', async t => {
+test('Verify token and set up auth only on the fist call, then prepare on prepare call only', async (t) => {
   const name = 'test-module';
   const repositoryUrl = `${mockServer.url}/owner/${name}.git`;
   const cwd = tempy.directory();

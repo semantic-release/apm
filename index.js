@@ -1,10 +1,10 @@
 /* eslint require-atomic-updates: off */
 
 const AggregateError = require('aggregate-error');
-const getPkg = require('./lib/get-pkg');
-const verifyApm = require('./lib/verify');
-const prepareApm = require('./lib/prepare');
-const publishApm = require('./lib/publish');
+const getPkg = require('./lib/get-pkg.js');
+const verifyApm = require('./lib/verify.js');
+const prepareApm = require('./lib/prepare.js');
+const publishApm = require('./lib/publish.js');
 
 let verified;
 let prepared;
