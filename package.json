@@ -16,11 +16,11 @@
     "Gregor Martynus (https://twitter.com/gr2m)"
   ],
   "dependencies": {
-    "@semantic-release/error": "^2.2.0",
-    "aggregate-error": "^3.0.0",
+    "@semantic-release/error": "^3.0.0",
+    "aggregate-error": "^4.0.0",
     "execa": "^5.0.0",
     "npm": "^6.4.1",
-    "read-pkg": "^5.0.0"
+    "read-pkg": "^7.0.0"
   },
   "devDependencies": {
     "ava": "3.15.0",
@@ -36,7 +36,7 @@
     "semantic-release": "18.0.0",
     "sinon": "11.1.2",
     "stream-buffers": "3.0.2",
-    "tempy": "1.0.1",
+    "tempy": "2.0.0",
     "xo": "0.45.0"
   },
   "engines": {
@@ -57,6 +57,7 @@
     "version"
   ],
   "license": "MIT",
+  "type": "module",
   "main": "index.js",
   "nyc": {
     "include": [
@@ -96,8 +97,7 @@
     "prettier": true,
     "space": true,
     "rules": {
-      "unicorn/string-content": "off",
-      "unicorn/prefer-module": "off"
+      "unicorn/string-content": "off"
     }
   },
   "renovate": {

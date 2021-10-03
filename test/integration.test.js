@@ -1,12 +1,12 @@
-const path = require('path');
-const test = require('ava');
-const {outputJson, readJson, pathExists} = require('fs-extra');
-const execa = require('execa');
-const {spy} = require('sinon');
-const tempy = require('tempy');
-const clearModule = require('clear-module');
-const {WritableStreamBuffer} = require('stream-buffers');
-const mockServer = require('./helpers/mockserver.js');
+import path from 'node:path';
+import test from 'ava';
+import fs from 'fs-extra';
+import execa from 'execa';
+// Cimport {spy} from 'sinon';
+import tempy from 'tempy';
+// Cimport clearModule from 'clear-module';
+// Cimport {WritableStreamBuffer} from 'stream-buffers';
+import * as mockServer from './helpers/mockserver.js';
 
 const env = {
   GITHUB_URL: mockServer.url,
@@ -24,20 +24,20 @@ test.after.always(async () => {
   await mockServer.stop();
 });
 
-test.beforeEach((t) => {
-  // Clear npm cache to refresh the module state
-  clearModule('..');
-  t.context.m = require('..');
-  t.context.log = spy();
-  t.context.stdout = new WritableStreamBuffer();
-  t.context.stderr = new WritableStreamBuffer();
-  t.context.logger = {log: t.context.log};
-});
+// Ctest.beforeEach((t) => {
+//   // Clear npm cache to refresh the module state
+//   clearModule('..');
+//   t.context.m = require('..');
+//   t.context.log = spy();
+//   t.context.stdout = new WritableStreamBuffer();
+//   t.context.stderr = new WritableStreamBuffer();
+//   t.context.logger = {log: t.context.log};
+// });
 
 test('Verify atom token, cli and package', async (t) => {
   const cwd = tempy.directory();
   const pkg = {name: 'valid-token', version: '0.0.0-dev'};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
   await t.notThrowsAsync(
     t.context.m.verifyConditions(
       {},
@@ -56,7 +56,7 @@ test('Verify atom token, cli and package', async (t) => {
 test('Throw SemanticReleaseError Array if config option are not valid in verifyConditions', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
     ...(await t.throwsAsync(
@@ -90,7 +90,7 @@ test('Throw SemanticReleaseError Array if config option are not valid in verifyC
 test('Prepare the package', async (t) => {
   const cwd = tempy.directory();
   const pkg = {name: 'prepare', version: '0.0.0'};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   await t.context.m.prepare(
     {},
@@ -105,14 +105,14 @@ test('Prepare the package', async (t) => {
     }
   );
 
-  t.is((await readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
-  t.false(await pathExists(path.resolve(cwd, `${pkg.name}-1.0.0.tgz`)));
+  t.is((await fs.readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
+  t.false(await fs.pathExists(path.resolve(cwd, `${pkg.name}-1.0.0.tgz`)));
 });
 
 test('Throw SemanticReleaseError Array if config option are not valid in prepare', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
     ...(await t.throwsAsync(
@@ -153,7 +153,7 @@ test('Publish the package', async (t) => {
   await execa('git', ['init'], {cwd});
   await execa('git', ['config', 'remote.origin.url', repositoryUrl], {cwd});
   const pkg = {name, version: '0.0.0', repository: {url: repositoryUrl}};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const verifyApmMock = await mockServer.mock('/packages', {}, {body: {}, method: 'POST', statusCode: 201});
   const getApmVersionMock = await mockServer.mock(
@@ -179,13 +179,13 @@ test('Publish the package', async (t) => {
   await mockServer.verify(getApmVersionMock);
 
   t.deepEqual(result, {name: 'Atom package', url: `https://atom.io/packages/${name}`});
-  t.is((await readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
+  t.is((await fs.readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
 });
 
 test('Throw SemanticReleaseError Array if config option are not valid in publish', async (t) => {
   const cwd = tempy.directory();
   const pkg = {};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   const errors = [
     ...(await t.throwsAsync(
@@ -225,7 +225,7 @@ test('Verify token and set up auth only on the fist call, then prepare on prepar
   await execa('git', ['init'], {cwd});
   await execa('git', ['config', 'remote.origin.url', repositoryUrl], {cwd});
   const pkg = {name, version: '0.0.0', repository: {url: repositoryUrl}};
-  await outputJson(path.resolve(cwd, 'package.json'), pkg);
+  await fs.outputJson(path.resolve(cwd, 'package.json'), pkg);
 
   await t.notThrowsAsync(
     t.context.m.verifyConditions(
@@ -270,5 +270,5 @@ test('Verify token and set up auth only on the fist call, then prepare on prepar
   await mockServer.verify(getApmVersionMock);
 
   t.deepEqual(result, {name: 'Atom package', url: `https://atom.io/packages/${name}`});
-  t.is((await readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
+  t.is((await fs.readJson(path.resolve(cwd, 'package.json'))).version, '1.0.0');
 });
