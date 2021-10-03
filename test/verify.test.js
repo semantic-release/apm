@@ -1,6 +1,6 @@
-const test = require('ava');
-const tempy = require('tempy');
-const verify = require('../lib/verify.js');
+import test from 'ava';
+import tempy from 'tempy';
+import verify from '../lib/verify.js';
 
 test('Verify "ATOM_ACCESS_TOKEN" is set', async (t) => {
   t.deepEqual(await verify({}, {env: {ATOM_ACCESS_TOKEN: 'my_token'}}), []);

@@ -17,14 +17,13 @@
   ],
   "dependencies": {
     "@semantic-release/error": "^3.0.0",
-    "aggregate-error": "^3.0.0",
+    "aggregate-error": "^4.0.0",
     "execa": "^5.0.0",
     "npm": "^6.4.1",
-    "read-pkg": "^5.0.0"
+    "read-pkg": "^7.0.0"
   },
   "devDependencies": {
     "ava": "3.15.0",
-    "clear-module": "4.1.2",
     "codecov": "3.8.3",
     "dockerode": "3.3.1",
     "fs-extra": "10.0.0",
@@ -36,7 +35,7 @@
     "semantic-release": "18.0.0",
     "sinon": "12.0.1",
     "stream-buffers": "3.0.2",
-    "tempy": "1.0.1",
+    "tempy": "2.0.0",
     "xo": "0.46.4"
   },
   "engines": {
@@ -57,6 +56,7 @@
     "version"
   ],
   "license": "MIT",
+  "type": "module",
   "main": "index.js",
   "nyc": {
     "include": [
@@ -96,8 +96,7 @@
     "prettier": true,
     "space": true,
     "rules": {
-      "unicorn/string-content": "off",
-      "unicorn/prefer-module": "off"
+      "unicorn/string-content": "off"
     }
   },
   "renovate": {
