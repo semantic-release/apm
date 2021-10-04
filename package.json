@@ -57,7 +57,7 @@
   ],
   "license": "MIT",
   "type": "module",
-  "main": "index.js",
+  "exports": "./index.js",
   "nyc": {
     "include": [
       "lib/**/*.js",

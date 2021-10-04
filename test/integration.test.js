@@ -26,7 +26,7 @@ test.after.always(async () => {
 test.beforeEach(async (t) => {
   // Math.random used to load a fresh module each time.
   // eslint-disable-next-line node/no-unsupported-features/es-syntax
-  t.context.m = (await import(`../index.js?${Math.random().toString(36)}`)).default;
+  t.context.m = await import(`../index.js?${Math.random().toString(36)}`);
   t.context.log = sinon.spy();
   t.context.stdout = new WritableStreamBuffer();
   t.context.stderr = new WritableStreamBuffer();
