@@ -15,7 +15,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: npm
-          node-version: 16
+          node-version: 'lts/*'
+          check-latest: true
       - run: npm ci
       - run: npx semantic-release
         env:

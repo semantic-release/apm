@@ -14,7 +14,8 @@ jobs:
       matrix:
         node-version:
           - '14.17'
-          - 16
+          - 'lts/*'
+          - '*'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
+          check-latest: true
       - run: npm ci
       # waiting on https://github.com/ljharb/ls-engines/pull/23 to be fixed
       # - name: Ensure dependencies are compatible with the version of node
@@ -37,6 +39,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: npm
-          node-version: 16
+          node-version: 'lts/*'
+          check-latest: true
       - run: npm ci
       - run: npm run lint
