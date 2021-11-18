@@ -18,8 +18,8 @@
   "dependencies": {
     "@semantic-release/error": "^3.0.0",
     "aggregate-error": "^4.0.0",
-    "execa": "^5.0.0",
-    "npm": "^6.4.1",
+    "execa": "^6.0.0",
+    "npm": "^6.14.15",
     "read-pkg": "^7.0.0"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "got": "11.8.3",
     "mockserver-client": "5.11.2",
     "nyc": "15.1.0",
-    "p-retry": "4.6.1",
+    "p-retry": "5.0.0",
     "semantic-release": "18.0.0",
     "sinon": "12.0.1",
     "stream-buffers": "3.0.2",

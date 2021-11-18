@@ -2,7 +2,7 @@ import path from 'node:path';
 import test from 'ava';
 import fs from 'fs-extra';
 import tempy from 'tempy';
-import execa from 'execa';
+import {execa} from 'execa';
 import sinon from 'sinon';
 import {WritableStreamBuffer} from 'stream-buffers';
 import prepare from '../lib/prepare.js';
