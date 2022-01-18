@@ -33,7 +33,7 @@
     "mockserver-client": "5.11.2",
     "nyc": "15.1.0",
     "p-retry": "4.6.1",
-    "semantic-release": "18.0.1",
+    "semantic-release": "19.0.2",
     "sinon": "12.0.1",
     "stream-buffers": "3.0.2",
     "tempy": "1.0.1",
