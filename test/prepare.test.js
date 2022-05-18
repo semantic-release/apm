@@ -111,7 +111,7 @@ test('Preserve indentation and newline', async (t) => {
 
   // Verify package.json has been updated
   t.is(
-    await readFile(packagePath, 'utf-8'),
+    await readFile(packagePath, 'utf8'),
     `{\r\n        "name": "package-name",\r\n        "version": "1.0.0"\r\n}\r\n`
   );
 
@@ -137,7 +137,7 @@ test('Use default indentation and newline if it cannot be detected', async (t) =
   );
 
   // Verify package.json has been updated
-  t.is(await readFile(packagePath, 'utf-8'), `{\n  "name": "package-name",\n  "version": "1.0.0"\n}\n`);
+  t.is(await readFile(packagePath, 'utf8'), `{\n  "name": "package-name",\n  "version": "1.0.0"\n}\n`);
 
   // Verify the logger has been called with the version updated
   t.is(t.context.log.args[0][0], 'Write version 1.0.0 to package.json');

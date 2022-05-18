@@ -97,7 +97,8 @@
     "space": true,
     "rules": {
       "unicorn/string-content": "off",
-      "unicorn/prefer-module": "off"
+      "unicorn/prefer-module": "off",
+      "unicorn/no-await-expression-member": "off"
     }
   },
   "renovate": {
