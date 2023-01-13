@@ -30,7 +30,7 @@
     "fs-extra": "11.1.0",
     "get-stream": "6.0.1",
     "got": "11.8.6",
-    "mockserver-client": "5.14.0",
+    "mockserver-client": "5.15.0",
     "nyc": "15.1.0",
     "p-retry": "4.6.2",
     "semantic-release": "19.0.5",
