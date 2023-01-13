@@ -32,7 +32,7 @@
     "got": "11.8.6",
     "mockserver-client": "5.14.0",
     "nyc": "15.1.0",
-    "p-retry": "4.6.2",
+    "p-retry": "5.1.2",
     "semantic-release": "19.0.5",
     "sinon": "15.0.0",
     "stream-buffers": "3.0.2",
